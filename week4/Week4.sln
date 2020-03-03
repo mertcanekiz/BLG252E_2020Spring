@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5_Primes", "..\Week4_Exampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2_Students", "..\Week4_Example_Students\2_Students.csproj", "{194BC261-E28B-4666-A187-14DF7202F718}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6_Class_Rectangle", "Class\6_Class_Rectangle.csproj", "{A5975DC6-1682-447C-87C0-2971D790CB94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6_Class_Rectangle", "Class\6_Class_Rectangle.csproj", "{A5975DC6-1682-447C-87C0-2971D790CB94}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7_Class_User", "7_Class_User\7_Class_User.csproj", "{2A552F26-12E4-4E99-8272-1DE1215A0067}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7_Class_User", "7_Class_User\7_Class_User.csproj", "{2A552F26-12E4-4E99-8272-1DE1215A0067}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
