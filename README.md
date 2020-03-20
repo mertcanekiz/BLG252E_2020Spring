@@ -12,6 +12,7 @@
 
 ### Videos
 
+* [MSDN C# Video Tutorial Series](https://channel9.msdn.com/Series/CSharp-101/?WT.mc_id=Educationalcsharp-c9-scottha)
 * [Brackeys - C# Beginner Course playlist](https://www.youtube.com/playlist?list=PLPV2KyIb3jR6ZkG8gZwJYSjnXxmfPAl51)
 * [.NET Core 3.1 MVC tutorial](https://www.youtube.com/watch?v=C5cnZ-gZy2I&t=2477s)
 
