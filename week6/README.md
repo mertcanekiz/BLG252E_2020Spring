@@ -24,14 +24,17 @@ A derived class can override a base class member only if the base class member i
 ```c#
 public class BaseClass
 {
-    public virtual void DoWork() { }
-    public virtual int WorkProperty { get { return 0; }};
+    public virtual void DoWork()
+    {
+        Console.WriteLine("Base class");
+    }
 }
 
 public class DerivedClass : BaseClass
 {
-    public override void DoWork(){
-        // ...
+    public override void DoWork()
+    {
+        Console.WriteLine("Derived class");
     }
 }
 ```
@@ -199,7 +202,7 @@ public class DerivedClass : BaseClass
 }
 ```
 
-In this case, note that the members are **not** virtual, therefore the usual polymorphism usage does not apply. Check the program in `3_New` for an example.
+In this case, note that the members are **not** virtual, therefore the usual polymorphism usage does not apply. Check the program in [3_New](./3_New/) for an example.
 
 ---
 ### Summary
