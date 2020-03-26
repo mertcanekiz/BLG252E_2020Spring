@@ -11,6 +11,38 @@ Polymorphism is one of the biggest design tools in object-oriented programming a
 In cases where it's needed to access the Base class and its members, we use the `base` keyword.
 
 ---
+
+### Virtual members
+When a derived class inherits from a base class, it gains all the methods, fields, properties, and events of the base class. The designer of the derived class can different choices for the behavior of virtual methods:
+
+* The derived class may override virtual members in the base class, defining new behavior.
+
+* The derived class inherit the closest base class method without overriding it, preserving the existing behavior but enabling further derived classes to override the method.
+
+* The derived class may define new non-virtual implementation of those members that hide the base class implementations.
+
+A derived class can override a base class member only if the base class member is declared as `virtual` or `abstract`. The derived member must use the `override` keyword to explicitly indicate that the method is intended to participate in virtual invocation. The following code provides an example:
+
+```c#
+public class BaseClass
+{
+    public virtual void DoWork() { }
+    public virtual int WorkProperty { get { return 0; }};
+}
+
+public class DerivedClass : BaseClass
+{
+    public override void DoWork(){
+        // ...
+    }
+}
+```
+
+Fields cannot be virtual, only methods, properties, events, and indexers can be virtual.
+
+When a derived class overrides a virtual member, that member is called even when an instance of that class is being accessed as an instance of the base class.
+
+---
 ### Polymorphism Usage
 
 Suppose you have a drawing application. You do not know at compile time which specific types of shapes the user will create. However, the application has to keep track of all the various types of shapes that are created, and it has to update them in response to user mouse actions. You can use polymorphism to solve this problem in two basic steps:
@@ -94,39 +126,6 @@ foreach (var shape in shapes)
 ```
 
 ---
-
-### Virtual members
-When a derived class inherits from a base class, it gains all the methods, fields, properties, and events of the base class. The designer of the derived class can different choices for the behavior of virtual methods:
-
-* The derived class may override virtual members in the base class, defining new behavior.
-
-* The derived class inherit the closest base class method without overriding it, preserving the existing behavior but enabling further derived classes to override the method.
-
-* The derived class may define new non-virtual implementation of those members that hide the base class implementations.
-
-A derived class can override a base class member only if the base class member is declared as `virtual` or `abstract`. The derived member must use the `override` keyword to explicitly indicate that the method is intended to participate in virtual invocation. The following code provides an example:
-
-```c#
-public class BaseClass
-{
-    public virtual void DoWork() { }
-    public virtual int WorkProperty { get { return 0; }};
-}
-
-public class DerivedClass : BaseClass
-{
-    public override void DoWork(){
-        // ...
-    }
-}
-```
-
-Fields cannot be virtual, only methods, properties, events, and indexers can be virtual.
-
-When a derived class overrides a virtual member, that member is called even when an instance of that class is being accessed as an instance of the base class.
-
----
-
 ### New keyword
 
 If you want your derived class to have a member with the same name as a member in a base class, you can use the `new` keyword to hide the base class member. The `new` keyword is put before the return type of a class member that is being replaced.
