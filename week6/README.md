@@ -47,6 +47,9 @@ The `base` keyword is used to access members of the base class from within a der
 
 `base` cannot be used from within a static method.
 
+
+A derived class that has replaced or overriden a method or property can still access the method or property on the base class using the `base` keyword.
+
 ```c#
 public class Person
 {
@@ -78,40 +81,17 @@ public class Employee : Person
 ```c#
 public class Person
 {
-    public Person(string name, string ssn)
-    {
-
-    }
+    public Person(string name, string ssn) { }
 }
 
 public class Employee : Person
 {
-    public Employee(string name, string ssn, string id) : base(name, ssn)
-    {
-
-    }
+    // base(name, ssn) calls the Person constructor
+    public Employee(string name, string ssn, string id) : base(name, ssn) {}
 }
 ```
 
-A derived class that has replaced or overriden a method or property can still access the method or property on the base class using the `base` keyword.
-
-```c#
-public class Base
-{
-    public virtual void DoWork() {}
-}
-
-public class Derived : Base
-{
-    public override void DoWork()
-    {
-        // Perform Derived's work here
-        // ...
-        // Call DoWork on base class
-        base.DoWork();
-    }
-}
-```
+See the full example in [4_Employee](./4_Employee/).
 
 ---
 ### Polymorphism Usage
@@ -222,10 +202,6 @@ public class DerivedClass : BaseClass
 In this case, note that the members are **not** virtual, therefore the usual polymorphism usage does not apply. Check the program in `3_New` for an example.
 
 ---
-### Sealed keyword
-Similar to how a `sealed` class does not allow any other class to inherit from it, a member labeled as `sealed` cannot be overriden
-
----
 ### Summary
 
 * **virtual**: Indicates that a method may be overriden by an inheritor
@@ -235,5 +211,3 @@ Similar to how a `sealed` class does not allow any other class to inherit from i
 * **new**: *hides* the original method (which doesn't have to be virtual), providing different functionality. This should only be used where it is absolutelty necessary.
 
 * **base**: Allows accessing the base class members from within the derived class.
-
-We will mostly use virtual and override.
