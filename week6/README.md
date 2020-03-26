@@ -8,8 +8,6 @@ Polymorphism is one of the biggest design tools in object-oriented programming a
 
 * **Virtual and override:** Base classes may define and implement *virtual* methods, and derived classes can *override* them, which means they provide their own definition and implementation. At run-time, when client code calls the method, the CLR looks up the run-time type of the object, and invokes that override of the virtual method. In your source code you can call a method on a base class, and cause a derived class's version of the method to be executed.
 
-In cases where it's needed to access the Base class and its members, we use the `base` keyword.
-
 ---
 
 ### Virtual members
@@ -43,6 +41,79 @@ Fields cannot be virtual, only methods, properties, events, and indexers can be 
 When a derived class overrides a virtual member, that member is called even when an instance of that class is being accessed as an instance of the base class.
 
 ---
+### Base keyword
+
+The `base` keyword is used to access members of the base class from within a derived class.
+
+`base` cannot be used from within a static method.
+
+```c#
+public class Person
+{
+    string ssn;
+    string name;
+
+    public virtual void GetInfo()
+    {
+        Console.WriteLine($"Name: {name}");
+        Console.WriteLine($"SSN: {ssn}");
+    }
+}
+
+public class Employee : Person
+{
+    string id;
+
+    public override void GetInfo()
+    {
+        // Calling the base class GetInfo method:
+        base.GetInfo();
+        Console.WriteLine($"Employee ID: {id}");
+    }
+}
+```
+
+`base` keyword is also used when calling the base class constructor from the derived class:
+
+```c#
+public class Person
+{
+    public Person(string name, string ssn)
+    {
+
+    }
+}
+
+public class Employee : Person
+{
+    public Employee(string name, string ssn, string id) : base(name, ssn)
+    {
+
+    }
+}
+```
+
+A derived class that has replaced or overriden a method or property can still access the method or property on the base class using the `base` keyword.
+
+```c#
+public class Base
+{
+    public virtual void DoWork() {}
+}
+
+public class Derived : Base
+{
+    public override void DoWork()
+    {
+        // Perform Derived's work here
+        // ...
+        // Call DoWork on base class
+        base.DoWork();
+    }
+}
+```
+
+---
 ### Polymorphism Usage
 
 Suppose you have a drawing application. You do not know at compile time which specific types of shapes the user will create. However, the application has to keep track of all the various types of shapes that are created, and it has to update them in response to user mouse actions. You can use polymorphism to solve this problem in two basic steps:
@@ -64,6 +135,7 @@ public class Shape
     // Virtual method
     public virtual void Draw()
     {
+        // Do draw operations common to all shapes
         Console.WriteLine("Base class Draw()");
     }
 }
@@ -73,6 +145,7 @@ public class Circle : Shape
     public override void Draw()
     {
         Console.WriteLine("Drawing a circle");
+        base.Draw();
     }
 }
 
@@ -81,6 +154,7 @@ public class Rectangle : Shape
     public override void Draw()
     {
         Console.WriteLine("Drawing a rectangle");
+        base.Draw();
     }
 }
 
@@ -89,6 +163,7 @@ public class Triangle : Shape
     public override void Draw()
     {
         Console.WriteLine("Drawing a triangle");
+        base.Draw();
     }
 }
 ```
@@ -144,4 +219,21 @@ public class DerivedClass : BaseClass
 }
 ```
 
-In this case, note that the members are **not** virtual, therefore the usual polymorphism usage does not apply. Check the program `2_New` for an example.
+In this case, note that the members are **not** virtual, therefore the usual polymorphism usage does not apply. Check the program in `3_New` for an example.
+
+---
+### Sealed keyword
+Similar to how a `sealed` class does not allow any other class to inherit from it, a member labeled as `sealed` cannot be overriden
+
+---
+### Summary
+
+* **virtual**: Indicates that a method may be overriden by an inheritor
+
+* **override**: Overrides the functionality of a virtual method in a base class, providing different functionality.
+
+* **new**: *hides* the original method (which doesn't have to be virtual), providing different functionality. This should only be used where it is absolutelty necessary.
+
+* **base**: Allows accessing the base class members from within the derived class.
+
+We will mostly use virtual and override.
