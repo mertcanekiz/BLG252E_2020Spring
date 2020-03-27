@@ -214,3 +214,7 @@ In this case, note that the members are **not** virtual, therefore the usual pol
 * **new**: *hides* the original method (which doesn't have to be virtual), providing different functionality. This should only be used where it is absolutelty necessary.
 
 * **base**: Allows accessing the base class members from within the derived class.
+
+---
+### CSV Example
+Inside the folder [5_CSV](./5_CSV/) there is an example that demonstrates the use of polymorphism as well as how to read and parse CSV (Comma-Separated Value) files.
