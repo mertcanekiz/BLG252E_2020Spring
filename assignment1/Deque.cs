@@ -5,7 +5,7 @@ namespace assignment1
 {
     abstract class Deque : IEnumerable
     {
-        public abstract int Size { get; }
+        public abstract int Size { get; set; }
         public abstract void Clear();
         public abstract void Unshift(int item);
         public abstract int Shift();
