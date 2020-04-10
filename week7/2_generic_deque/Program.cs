@@ -7,14 +7,21 @@ namespace assignment1
     {
         static void Main(string[] args)
         {
-            Deque<int> deque = new DLinkDeque<int>();
+            Deque<int> intDeque = new DLinkDeque<int>();
+            Deque<string> stringDeque = new DLinkDeque<string>();
 
-            var lines = File.ReadAllLines("integers.txt");
-            foreach (var line in lines) {
-                deque.Push(Convert.ToInt32(line));
+            intDeque.Push(1);
+            intDeque.Push(2);
+            intDeque.Push(3);
+
+            stringDeque.Push("Hello");
+            stringDeque.Push("World");
+
+            foreach (var item in intDeque) {
+                Console.WriteLine(item);
             }
 
-            foreach (var item in deque) {
+            foreach (var item in stringDeque) {
                 Console.WriteLine(item);
             }
         }
