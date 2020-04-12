@@ -48,7 +48,7 @@ namespace assignment1
             int index = 0;
             while (index < this.data.Count)
             {
-                yield return this.data[index];
+                yield return this.data[index++];
             }
         }
     }
