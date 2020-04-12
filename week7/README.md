@@ -10,7 +10,7 @@ You can compile and run .NET Core programs from the command line using the CLI c
 
 * `dotnet new console` Create a new console application project
 * `dotnet build` Build your project and generate the executable
-* `dotnet run` Build and your application
+* `dotnet run` Build and run your application
 
 More information on [MSDN](https://docs.microsoft.com/en-us/dotnet/core/tools/)
 
