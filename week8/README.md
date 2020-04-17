@@ -123,4 +123,4 @@ finally
 }
 ```
 
-If you don't want to handle an exception right away, you can use the `throw` keyword. When you use `throw` in a `catch` block, the exception gets passed back to the original caller. You can also use the `throw keyword to create new exceptions. An example demonstrating this is available inside [4_throw](./4_throw/).
+If you don't want to handle an exception right away, you can use the `throw` keyword. When you use `throw` in a `catch` block, the exception gets passed back to the original caller. You can also use the `throw` keyword to create new exceptions. An example demonstrating this is available inside [4_throw](./4_throw/).
