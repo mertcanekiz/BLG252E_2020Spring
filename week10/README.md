@@ -251,7 +251,7 @@ var scoreQuery = scores.Where(score => score > 80).OrderByDescending(score => sc
 
 The compiler actually compiles the query syntax to the method syntax, therefore these two pieces of code produce exactly the same result.
 
-
+Some of the most used LINQ methods are:
 
 * **`Take`**: Used for taking only the first `n` elements of a collection
 * **`Where`**: Used for filtering a collection according to the predicate passed in.
@@ -260,7 +260,3 @@ The compiler actually compiles the query syntax to the method syntax, therefore 
 For a detailed list and examples on every available LINQ method, go to [this link](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable?view=netcore-3.1#methods) and click on one of the methods inside Enumerable > Methods list on the left-hand side.
 
 For a video tutorial I recommend [Derek Banas' video](https://www.youtube.com/watch?v=gwD9awr3NNo) on the topic.
-
-## Indexers
-
-## Regex
