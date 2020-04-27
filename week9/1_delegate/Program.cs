@@ -16,6 +16,8 @@ namespace _1_delegate
         delegate int MyDelegate(string s);
         static void Main()
         {
+            Person p1 = new Person();
+            
             // first way of calling SomeMethod
             int answer = p1.SomeMethod("Some String");
 
