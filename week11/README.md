@@ -396,8 +396,6 @@ public class DirReduction {
 }
 ```
 
-Talk about stacks first, maybe wikipedia?
-
 ```c#
 using System;
 using System.Collections.Generic;
